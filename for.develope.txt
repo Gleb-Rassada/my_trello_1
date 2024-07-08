@@ -1,0 +1,73 @@
+PORT = 5000
+DB_PORT=5432
+DB_HOST=localhost
+DB_USER=postgres
+DB_PASSWORD=1234
+DB_NAME=my_trello_db
+
+
+# перечень полизователей для тестирования 
+# пользователям для тестирования БД, хеширования и т.п:
+#1    
+{
+	"userName": "Oleg",
+	"userEmail": "oLEG1@email.com",
+  "userPassword":"728372831"
+}
+
+#2 
+{
+	"userName": "Vlad",
+	"userEmail": "vladd@email.com",
+    "userPassword": "728372831"
+}
+
+#3
+#  		"firstName": "Stas",
+#		"userName": "User3"
+#		"email": "sTAs3@email.com",
+#		"password":"CTn345inR"
+#
+
+
+
+Table user {
+  id integer [primary key, increment]
+  user_name varchar [not null]
+  user_email varchar [unique, not null]
+  user_password varchar [not null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table column {
+  id integer [primary key, increment]
+  column_name varchar [not null]
+  user_id integer [not null]
+  created_at timestamp 
+  updated_at timestamp
+}
+
+Table card {
+  id integer [primary key, increment]
+  card_name varchar [not null]
+  card_description varchar [not null]
+  is_completed bool [not null, default: false]
+  column_id integer [not null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table comment {
+  id integer [primary key, increment]
+  comment_name varchar [not null]
+  card_id integer [not null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Ref: "user"."id" < "column"."user_id"
+
+Ref: "column"."id" < "card"."column_id"
+
+Ref: "card"."id" < "comment"."card_id"

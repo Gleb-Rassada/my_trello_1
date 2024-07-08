@@ -4,12 +4,12 @@ import { CreateUserDTO } from "../users/dto";
 import { UserLoginDTO } from "./dto";
 import { ApiResponse, ApiTags } from "@nestjs/swagger";
 import { AuthUserResponce } from "./responce";
-import { JwtAuthGuard } from "src/guards/jwt-guard";
+// import { JwtAuthGuard } from "src/guards/jwt-guard";
 
 @Controller("auth")
 export class AuthController {
    constructor(private readonly authService: AuthService) {}
-   @ApiTags("API")
+   @ApiTags("Auth")
    @ApiResponse({ status: 201, type: CreateUserDTO })
    //описание возвращаемого ответа при успешном выполнении
    @Post("register")
@@ -17,7 +17,7 @@ export class AuthController {
       return this.authService.registerUser(dto);
    }
 
-   @ApiTags("API") // для swagger
+   @ApiTags("Auth") // для swagger
    @ApiResponse({ status: 200, type: UserLoginDTO })
    @Post("login")
    login(@Body() dto: UserLoginDTO): Promise<AuthUserResponce> {
@@ -25,9 +25,9 @@ export class AuthController {
    }
 
    // тест работы jwt токена
-   @UseGuards(JwtAuthGuard)
-   @Post("test")
-   test() {
-      return true;
-   }
+   // @UseGuards(JwtAuthGuard)
+   // @Post("test")
+   // test() {
+   //    return true;
+   // }
 }

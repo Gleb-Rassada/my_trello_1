@@ -15,6 +15,8 @@ DB_NAME=my_trello_db
   "userPassword":"728372831"
 }
 
+token - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJOYW1lIjoiT2xlZyIsInVzZXJFbWFpbCI6Im9MRUcxQGVtYWlsLmNvbSJ9LCJpYXQiOjE3MjA0NjUwOTcsImV4cCI6MTcyMDU1MTQ5N30.Fg9-zxwcET9uipE2pHGGj-JEqUO0v2Xl6awYu844ykw
+
 #2 
 {
 	"userName": "Vlad",
@@ -22,52 +24,13 @@ DB_NAME=my_trello_db
     "userPassword": "728372831"
 }
 
+token - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJOYW1lIjoiVmxhZCIsInVzZXJFbWFpbCI6InZsYWRkQGVtYWlsLmNvbSJ9LCJpYXQiOjE3MjA0NjUxMzEsImV4cCI6MTcyMDU1MTUzMX0.UNv1ypjJlHfEZSDCL8HDZul004cHYMbL9slHdKjYOmc
+
 #3
-#  		"firstName": "Stas",
-#		"userName": "User3"
-#		"email": "sTAs3@email.com",
-#		"password":"CTn345inR"
-#
-
-
-
-Table user {
-  id integer [primary key, increment]
-  user_name varchar [not null]
-  user_email varchar [unique, not null]
-  user_password varchar [not null]
-  created_at timestamp
-  updated_at timestamp
+{
+  	"userName": "Stas",
+		"userEmail": "sTAs3@email.com",
+		"userPassword":"CTn345inR"
 }
 
-Table column {
-  id integer [primary key, increment]
-  column_name varchar [not null]
-  user_id integer [not null]
-  created_at timestamp 
-  updated_at timestamp
-}
-
-Table card {
-  id integer [primary key, increment]
-  card_name varchar [not null]
-  card_description varchar [not null]
-  is_completed bool [not null, default: false]
-  column_id integer [not null]
-  created_at timestamp
-  updated_at timestamp
-}
-
-Table comment {
-  id integer [primary key, increment]
-  comment_name varchar [not null]
-  card_id integer [not null]
-  created_at timestamp
-  updated_at timestamp
-}
-
-Ref: "user"."id" < "column"."user_id"
-
-Ref: "column"."id" < "card"."column_id"
-
-Ref: "card"."id" < "comment"."card_id"
+token - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJOYW1lIjoiU3RhcyIsInVzZXJFbWFpbCI6InNUQXMzQGVtYWlsLmNvbSJ9LCJpYXQiOjE3MjA0NjUxNDcsImV4cCI6MTcyMDU1MTU0N30.1ZnuvZCMYqNfrEYlvlBZrIJolIv7rfhhPjtKxXPdejY

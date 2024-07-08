@@ -16,7 +16,6 @@ async function start() {
       .setTitle("Trello api") // заголовок страницы
       .setDescription("This API for interaction with Trello") // описание
       .setVersion("") // версия нашего api
-      .addTag("API") //
       .build(); //
 
    // теперь создаём полный документ который будет описывать
